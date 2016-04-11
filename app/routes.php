@@ -18,12 +18,12 @@ Route::get('/', function()
 
 Route::get('/portfolio', function()
 {
-	return 'This is my portfolio page.';
+	return View::make('portfolio');
 });
 
 Route::get('/resume', function()
 {
-	return 'This is my resume page.';
+	return View::make('resume');
 });
 
 Route::get('/sayhello/{name?}', function($name = 'Codeup') {
