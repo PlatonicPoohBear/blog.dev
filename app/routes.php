@@ -31,3 +31,11 @@ Route::get('/sayhello/{name?}', function($name = 'Codeup') {
 	$data = ['name' => $name];
 	return View::make('my-first-view')->with($data);
 });
+
+Route::get('/rolldice/{guess}', function($guess) {
+
+	$number = mt_rand(1, 6);
+
+	$data = ['number' => $number, 'guess' => $guess];
+	return View::make('roll-dice')->with($data);
+});
