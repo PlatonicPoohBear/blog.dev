@@ -28,3 +28,5 @@ Route::get('/rolldice/{guess}', function($guess) {
 });
 
 Route::get('/simpleSimon', 'HomeController@showSimon');
+
+Route::resource('posts', 'PostsController');
