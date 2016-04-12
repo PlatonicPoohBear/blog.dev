@@ -26,3 +26,7 @@ Route::get('/rolldice/{guess}', function($guess) {
 	$data = ['number' => $number, 'guess' => $guess];
 	return View::make('roll-dice')->with($data);
 });
+
+Route::get('/simpleSimon', function() {
+	return View::make('simpleSimon');
+});

@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Simple Simon</title>
+
+	<style type="text/css">
+
+		html {
+			background-color: #383232;
+			color: #eae3e3;
+			background-image: none;
+			background-size: cover;
+			transition: background-image 4s;
+		}
+
+		.container {
+			position: relative;
+			top: 200px;
+			width: 200px;
+			height: 370px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		#red {
+			height: 100px;
+			width: 100px;
+			background-color: red;
+			float: left;
+			opacity: 0.2;
+		}
+
+		#blue {
+			height: 100px;
+			width: 100px;
+			background-color: blue;
+			float: left;
+			opacity: 0.2;
+		}
+
+		#green {
+			height: 100px;
+			width: 100px;
+			background-color: green;
+			float: left;
+			opacity: 0.2;
+		}
+
+		#yellow {
+			height: 100px;
+			width: 100px;
+			background-color: yellow;
+			float: left;
+			opacity: 0.2;
+		}
+
+
+		.infoContainer {
+			width: 200px;
+			float: left;
+		}
+
+		#round {
+			text-align: center;
+			height: 20px;
+		}
+
+		#highscore {
+			text-align: center;
+			height: 20px;
+		}
+
+		#newGame {
+			margin-top: 10px;
+		}
+
+		body {
+			width: 100%;
+			height: 100vh;
+			margin: 0;
+			background-color: rgba(0,0,0,.5);
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class='container'>
+		<div id='red'></div>
+		<div id='blue'></div>
+		<div id='green'></div>
+		<div id='yellow'></div>
+	
+		<div class='infoContainer'>
+			<div id='round'></div>
+			<div id='highscore'></div>
+			<button id='newGame'>New Game</button>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="/JS/jquery-1.12.0.js"></script>
+	<script type="text/javascript" src="/JS/simpleSimon.js"></script>
+	<script type="text/javascript" src="/JS/simonBackgrounds.js"></script>
+</body>
+</html>
