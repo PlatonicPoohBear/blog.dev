@@ -10,7 +10,7 @@
 
 	@endforeach
 
-
+	{{ $posts->links() }}
 
 
 @stop

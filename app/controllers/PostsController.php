@@ -9,7 +9,9 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('posts.index', ['posts' => Post::all()]);
+		$posts = Post::paginate(1);
+
+		return View::make('posts.index', ['posts' => $posts]);
 	}
 
 
