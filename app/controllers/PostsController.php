@@ -69,7 +69,9 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return 'Show a form for editing a specific post';
+		$post = [ 'post' => Post::find($id)];
+        
+        return View::make('posts.edit')->with($post);
 	}
 
 
@@ -81,7 +83,13 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		return 'Update a specific post';
+		$post = Post::find($id);
+        
+        $post->title = Input::get('title');
+        $post->body = Input::get('body');
+ 		
+        $post->save();
+        return Redirect::action('PostsController@show', $post->id);
 	}
 
 

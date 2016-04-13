@@ -2,23 +2,26 @@
 
 @section('content')
 
-	<form method='post' action={{{ action('PostsController@store')	}}}>
 
-		<input type='text' name='title' value={{{ Input::old('title') }}}>
+		{{ Form::open(array('action' => 'PostsController@store', 'method' => 'POST')) }}
+
+		{{ Form::label('title', 'Title') }}
+		{{ Form::text('title') }}
 		
 		@if ($errors->has('title'))
 			<p>{{{ $errors->first('title') }}}</p>
 		@endif
 		
-		<input type='text' name='body' value={{{ Input::old('body') }}}>
+		{{ Form::label('body', 'Body') }}
+		{{ Form::text('body') }}
 		
 		@if ($errors->has('body'))
 			<p>{{{ $errors->first('body') }}}</p>
 		@endif
 		
-		<input type='submit' value='Save'>
+		{{ Form::submit('Save') }}
 
-	</form>
+		{{ Form::close() }}
 
 
 
