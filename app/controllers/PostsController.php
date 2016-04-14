@@ -47,6 +47,8 @@ class PostsController extends \BaseController {
 
 			Session::flash('successMessage', 'Success');
 
+			Log::info('Log message', array('input' => Input::all()));
+
 
 			return Redirect::action('PostsController@index');
 	    }
