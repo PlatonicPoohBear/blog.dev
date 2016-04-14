@@ -36,12 +36,17 @@ class PostsController extends \BaseController {
 		$validator = Validator::make(Input::all(), Post::$rules);
 
 		if ($validator->fails()) {
+	        Session::flash('errorMessage', 'Failure');
+
 	        return Redirect::action('PostsController@create')->withInput()->withErrors($validator);
 	    } else {
 	        $post = new Post();
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
+
+			Session::flash('successMessage', 'Success');
+
 
 			return Redirect::action('PostsController@index');
 	    }
@@ -85,11 +90,20 @@ class PostsController extends \BaseController {
 	{
 		$post = Post::find($id);
         
-        $post->title = Input::get('title');
-        $post->body = Input::get('body');
+        if ($post) {
+        	$post->title = Input::get('title');
+        	$post->body = Input::get('body');
  		
-        $post->save();
-        return Redirect::action('PostsController@show', $post->id);
+        	$post->save();
+
+        	Session::flash('successMessage', 'Success');
+
+			return Redirect::action('PostsController@show', $post->id);
+		} else {
+			Session::flash('errorMessage', 'Failure');
+
+			return Redirect::action('PostsController@edit', $post->id);
+		}
 	}
 
 
