@@ -7,6 +7,8 @@
             
             {{ Form::token() }}
 
+            <p>{{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}}</p>
+
 			{{ Form::label('title', 'Title') }}
 			{{ Form::text('title', null) }}
 			
