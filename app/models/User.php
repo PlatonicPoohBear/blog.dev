@@ -28,4 +28,9 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	    return $this->hasMany('Post');
 	}
 
+	public function setPasswordAttribute($value)
+	{
+	    $this->attributes['password'] = Hash::make($value);
+	}
+
 }
