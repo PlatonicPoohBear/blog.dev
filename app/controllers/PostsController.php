@@ -42,6 +42,7 @@ class PostsController extends \BaseController {
 	    } else {
 	        $post = new Post();
 			$post->title = Input::get('title');
+			$post->user_id = User::first()->id;
 			$post->body = Input::get('body');
 			$post->save();
 

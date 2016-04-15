@@ -10,6 +10,8 @@
 
 		<h3>{{{ $value->body }}}</h3>
 
+		<p>{{{ $value->user->email }}}</p>
+
 	@endforeach
 
 	{{ $posts->links() }}

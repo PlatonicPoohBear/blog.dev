@@ -5,6 +5,7 @@ class PostTableSeeder extends Seeder
 {
 	public function run()
 	{
+
 		$post = new Post();
 		$post->title = 'Hello World!';
 		$post->body = 'Test...';
