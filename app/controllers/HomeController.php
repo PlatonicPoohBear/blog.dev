@@ -40,6 +40,11 @@ class HomeController extends BaseController {
 
 	public function getLogin()
     {
+        if (Auth::check())
+        	{
+        		Auth::logout();
+        	}
+
         return View::make('login');
     }
 

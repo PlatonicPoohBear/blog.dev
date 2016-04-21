@@ -9,7 +9,13 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::paginate(1);
+		$search = Input::get('search');
+
+		if (is_null($search)) {
+			$posts = Post::with('User')->orderBy('created_at', 'desc')->paginate(4);
+		} else {
+			$posts = Post::with('User')->where('title', 'LIKE', "%$search%")->orderBy('created_at', 'desc')->paginate(4);
+		}
 
 		return View::make('posts.index', ['posts' => $posts]);
 	}
@@ -22,6 +28,11 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
+		if (!Auth::check())
+			{
+				return Redirect::action('HomeController@getLogin');
+			}
+
 		return View::make('posts.create');
 	}
 
